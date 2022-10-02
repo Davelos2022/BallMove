@@ -53,8 +53,6 @@ public class RandomItem : MonoBehaviour
     private void Sorting (Transform[] spawnPositon, List<GameObject> objects)
     {
         for (int x = 0; x < objects.Count; x++)
-        {
-            objects[x].transform.position = spawnPositon[x].position;
-        }
+            objects[x].transform.position = spawnPositon[x].position;        
     }
 }

@@ -46,9 +46,7 @@ public class PlayerController : MonoBehaviour
                 pathPoint++;
 
                 if (pathPoint >= positionsPath.Count)
-                {
-                    ResetPath();
-                }
+                    ResetPath();      
             }
         }
     }
@@ -58,9 +56,7 @@ public class PlayerController : MonoBehaviour
         lineTrajectory.positionCount = positionsPath.Count;
 
         for (int x = 0; x < positionsPath.Count; x++)
-        {
-            lineTrajectory.SetPosition(x, positionsPath[x]);
-        }
+            lineTrajectory.SetPosition(x, positionsPath[x]);       
     }
 
     private void ResetPath()

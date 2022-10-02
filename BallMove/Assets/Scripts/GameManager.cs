@@ -85,9 +85,7 @@ public class GameManager : MonoBehaviour
             audioManager.PlaySound(AudioManager.typeClips.Give);
 
         if (currentCoins >= maxCoins)
-        {
             ResultGame(true);
-        }
     }
 
     public void PlayGame()
