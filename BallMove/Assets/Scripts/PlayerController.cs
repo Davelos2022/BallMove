@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
 
     private LineRenderer lineTrajectory;
 
-    private List<Vector3> positionsPath = new List<Vector3>();
-    private int pathPoint;
-    private float distance = 0.2f;
+    private List<Vector3> positionsPath = new List<Vector3>(); //Stores waypoints
+    private int pathPoint; //Next point path
+    private float distance = 0.2f; //Minimum distance to the next point
     void Start()
     {
         lineTrajectory = GetComponent<LineRenderer>();
@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        if (Input.GetMouseButtonDown(0))
         {
             positionsPath.Add(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 

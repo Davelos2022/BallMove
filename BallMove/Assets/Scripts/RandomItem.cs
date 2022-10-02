@@ -5,21 +5,27 @@ public class RandomItem : MonoBehaviour
 {
     [Header("Objects for spawn")]
     [Space]
-    [SerializeField] private GameObject[] objectGame;
+    [SerializeField] private GameObject[] objectGame; // Objects to spawn
 
     [Header("Settings spawn")]
     [Space]
-    [SerializeField] private Transform[] positonSpawn;
-    [SerializeField] private GameObject parentObject;
+    [SerializeField] private Transform[] positonSpawn; //Position future objects
+    [SerializeField] private GameObject parentObject; //Parent future spawn
 
     private List<GameObject> listObjectsSpawn = new List<GameObject>();
     private void Start()
     {
+        //Creating objects
         PreloaderSpawn(objectGame, parentObject, listObjectsSpawn, positonSpawn.Length);
+
+        //Shuffle created objects
         Shuffle(listObjectsSpawn);
+
+        //Sorting created objects
         Sorting(positonSpawn, listObjectsSpawn);
 
-        GameManager.Instance.CheckItem(listObjectsSpawn);
+        // We pass the finished list of objects for counting
+        GameManager.Instance.CheckItem(listObjectsSpawn); 
     }
 
     private void PreloaderSpawn(GameObject[] objThatSpawn, GameObject parent, List<GameObject> objList, int maxCountSpawn)
@@ -31,6 +37,7 @@ public class RandomItem : MonoBehaviour
         }
     }
 
+    //Shuffle created objects
     private void Shuffle<T>(List<T> obj)
     {
         for (int i = obj.Count - 1; i > 0; i--)
@@ -42,6 +49,7 @@ public class RandomItem : MonoBehaviour
         }
     }
 
+    //Sorting created objects
     private void Sorting (Transform[] spawnPositon, List<GameObject> objects)
     {
         for (int x = 0; x < objects.Count; x++)

@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class SmoothFollow : MonoBehaviour
 {
+    //Attaching the camera to an object
+
     [Header("Camera setings")]
-    public Transform target;
-    public float smooth;
+    public Transform target; 
+    public float smooth; //smoothness of movement
 
     void LateUpdate()
     {
